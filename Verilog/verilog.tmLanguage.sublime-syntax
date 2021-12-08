@@ -1,6 +1,15 @@
 %YAML 1.2
 ---
 # http://www.sublimetext.com/docs/syntax.html
+file_extensions:
+  - v
+  - vh
+  - sv
+  - svh
+  - svi
+  - vlib
+  - vp
+  - svp
 scope: source.verilog
 contexts:
   main:
