@@ -1,0 +1,4 @@
+FROM ubuntu:latest
+COPY syntax_tests .
+COPY Data Data
+CMD ["./syntax_tests"]

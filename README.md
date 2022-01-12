@@ -2,6 +2,10 @@
 
 > **These packages are developed against the latest [Sublime Text Dev Build](http://sublimetext.com/dev). Bugs may exist on older builds, and the format used is not compatible with builds older than 4095.**
 
+For work on the Sourcegraph fork,
+follow the instructions for [Making Changes](./MakingChanges.md)
+instead of following the instructions below.
+
 ## Installation
 
 If you want to make changes to these packages and test them locally, fork this repository and then symlink the changed packages into your *Packages* folder.
