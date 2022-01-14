@@ -104,15 +104,11 @@ function f ([ x, [a, b], z]) {}
 
 function f ([ $x, [$a, $b], $z]) {}
 //          ^^^^^^^^^^^^^^^^^^^ meta.binding.destructuring.sequence
-//            ^ meta.binding.name variable.parameter.function punctuation.dollar
-//             ^ meta.binding.name variable.parameter.function - punctuation.dollar
+//            ^^ meta.binding.name variable.parameter.function - punctuation.dollar
 //                ^^^^^^^^ meta.binding.destructuring.sequence meta.binding.destructuring.sequence
-//                 ^ meta.binding.name variable.parameter.function punctuation.dollar
-//                  ^ meta.binding.name variable.parameter.function - punctuation.dollar
-//                     ^ meta.binding.name variable.parameter.function punctuation.dollar
-//                      ^ meta.binding.name variable.parameter.function - punctuation.dollar
-//                          ^ meta.binding.name variable.parameter.function punctuation.dollar
-//                           ^ meta.binding.name variable.parameter.function - punctuation.dollar
+//                 ^^ meta.binding.name variable.parameter.function - punctuation.dollar
+//                     ^^ meta.binding.name variable.parameter.function - punctuation.dollar
+//                          ^^ meta.binding.name variable.parameter.function - punctuation.dollar
 
 function f ([ x = 42, y = [a, b, c] ]) {}
 //          ^^^^^^^^^^^^^^^^^^^^^^^^^ meta.binding.destructuring.sequence
@@ -150,11 +146,9 @@ function f (a, ...rest) {}
 //                ^^^^ variable.parameter.function
 
 function f ($a, ...$rest) {}
-//          ^ meta.binding.name variable.parameter.function punctuation.dollar
-//           ^ meta.binding.name variable.parameter.function - punctuation.dollar
+//          ^^ meta.binding.name variable.parameter.function - punctuation.dollar
 //              ^^^ keyword.operator.spread
-//                 ^ meta.binding.name variable.parameter.function punctuation.dollar
-//                  ^^^^ meta.binding.name variable.parameter.function - punctuation.dollar
+//                 ^^^^^ meta.binding.name variable.parameter.function - punctuation.dollar
 
 function f (new) {}
 // ^^^^^^^^^^^^^^^^ meta.function

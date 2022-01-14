@@ -59,7 +59,7 @@ contexts:
         punctuation.definition.comment.begin.java
       embed: javadoc
       embed_scope: comment.block.documentation.java
-      escape: \*+/
+      escape: \s*\*+/
       escape_captures:
         0: comment.block.documentation.java
            punctuation.definition.comment.end.java

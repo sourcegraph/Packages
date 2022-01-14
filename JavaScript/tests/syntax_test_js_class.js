@@ -33,7 +33,7 @@ class MyClass extends TheirClass {
 
     [w]
     get other() {}
-//  ^^^ storage.type.accessor.js
+//  ^^^ variable.other.readwrite
 
     #v = 42;
 //  ^ punctuation.definition.variable
@@ -43,7 +43,7 @@ class MyClass extends TheirClass {
 
     #u
     get other() {}
-//  ^^^ storage.type.accessor.js
+//  ^^^ variable.other.readwrite
 
     f = a => b;
 //  ^ entity.name.function variable.other.readwrite

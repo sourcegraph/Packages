@@ -125,7 +125,7 @@ import foo;
 //  ^^^^^^ keyword.control.import-export
 //         ^^^^^^^^^^ meta.block
 //         ^ punctuation.section.block.begin
-//           ^^^^ keyword.control.import-export.ts
+//           ^^^^ variable.other.readwrite
 //                ^ variable.other.readwrite
 //                  ^ punctuation.section.block.end
 //                    ^^^^ keyword.control.import-export

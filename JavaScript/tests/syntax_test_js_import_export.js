@@ -28,23 +28,22 @@ import 'module';
 // ^^^^^^^^^^^^^ meta.import
 
 import foo from 'bar' assert { type: "json" };
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.import.js
 //^^^^ keyword.control.import-export.js
 //     ^^^ variable.other.readwrite.js
 //         ^^^^ keyword.control.import-export.js
 //              ^^^^^ meta.string.js string.quoted.single.js
 //              ^ punctuation.definition.string.begin.js
 //                  ^ punctuation.definition.string.end.js
-//                    ^^^^^^ keyword.control.import-export.js
-//                           ^^^^^^^^^^^^^^^^ meta.mapping.js
+//                    ^^^^^^ variable.other.readwrite.js
+//                           ^^^^^^^^^^^^^^^^ meta.block.js
 //                           ^ punctuation.section.block.begin.js
-//                             ^^^^ meta.mapping.key.js
-//                                 ^ punctuation.separator.key-value.js
+//                             ^^^^ entity.name.label.js
+//                                 ^ punctuation.separator.js
 //                                   ^^^^^^ meta.string.js string.quoted.double.js
 //                                   ^ punctuation.definition.string.begin.js
 //                                        ^ punctuation.definition.string.end.js
 //                                          ^ punctuation.section.block.end.js
-//                                           ^ punctuation.terminator.statement.js
+//                                           ^ punctuation.terminator.statement.empty.js
 
 // Better highlighting while typing.
 import

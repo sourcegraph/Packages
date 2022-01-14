@@ -1,4 +1,4 @@
-# Sublime Packages
+# Sourcegraph's SublimeHQ Packages Fork
 
 > **These packages are developed against the latest [Sublime Text Dev Build](http://sublimetext.com/dev). Bugs may exist on older builds, and the format used is not compatible with builds older than 4095.**
 
