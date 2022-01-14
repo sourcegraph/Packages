@@ -1,0 +1,10 @@
+https://github.com/harrism/sublimetext-cuda-cpp/blob/master/cuda-c%2B%2B.tmLanguage
+
+Remove `h` extension registration:
+
+```diff
+ file_extensions:
+   - cu
+   - cuh
+-  - h
+```
