@@ -1,6 +1,10 @@
-# Sublime Packages
+# Sourcegraph's SublimeHQ Packages fork
 
 > **These packages are developed against the latest [Sublime Text 3 Dev Build](http://sublimetext.com/3dev). Bugs may exist on older builds, and the format used is not compatible with builds older than 3092.**
+
+For work on the Sourcegraph fork,
+follow the instructions for [Making Changes](./MakingChanges.md)
+instead of following the instructions below.
 
 ## Installation
 
