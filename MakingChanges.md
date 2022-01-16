@@ -1,46 +1,58 @@
-# Sourcegraph's SublimeHQ Packages fork
+# Making Changes
 
-> **These packages are developed against the latest [Sublime Text 3 Dev Build](http://sublimetext.com/3dev). Bugs may exist on older builds, and the format used is not compatible with builds older than 3092.**
+## Cloning the project
 
-For work on the Sourcegraph fork,
-follow the instructions for [Making Changes](./MakingChanges.md)
-instead of following the instructions below.
+```
+# Setup test scaffolding
+wget -O st_syntax_tests.tar.xz https://download.sublimetext.com/st_syntax_tests_build_4125_x64.tar.xz
+tar xf st_syntax_tests.tar.xz
+rm st_syntax_tests.tar.xz
 
-## Installation
+mv st_syntax_tests PackagesProject
+cd PackagesProject
 
-If you want to make changes to these packages and test them locally, fork this repository and then symlink the changed packages into your *Packages* folder.
-
-*Replace `Python` in the following commands with the name of the syntax to install.*
-
-### OS X
-
-```bash
-$ git clone https://github.com/sublimehq/Packages.git
-$ ln -s `pwd`/Packages/Python ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
+git clone https://github.com/sourcegraph/Packages.git
+mv Packages/.* Data/Packages/
+mv Packages/* Data/Packages/
+ln -s Data/Packages/TestDockerfile Dockerfile
+rmdir Packages
 ```
 
-### Linux
+## Running tests
 
-```bash
-$ git clone https://github.com/sublimehq/Packages.git
-$ ln -s `pwd`/Packages/Python ~/.config/sublime-text-3/Packages/
+On x86_64 Linux, you should be able to directly run `./syntax_tests`.
+
+On a Mac, Docker is needed since the testing binary is only available for x86_64 Linux.
+Once Docker is running:
+
+```
+docker image build --platform linux/x86_64 --tag st-packages-tests .
+docker run --platform linux/x86_64 st-packages-tests
 ```
 
-### Windows
+If you want to log into the container and manually run the tests
 
-On Windows, you can use directory junctions instead of symlinks (symlinks require administrative rights; directory junctions don't):
-
-```powershell
-# Using PowerShell
-PS> git clone https://github.com/sublimehq/Packages.git
-PS> cmd /c mklink /J "$env:APPDATA/Sublime Text 3/Packages/Python" (convert-path ./Packages/Python)
+```
+docker run --platform linux/x86_64 --interactive --tty st-packages-tests /bin/sh
 ```
 
-Alternatively, download the portable version, and clone this repository directly as a subdirectory of the *Data* folder.
+## Updating JS/JSX/TS/TSX syntax definitions
 
----
+We are currently relying on [Thom1729/Sublime-JS-Custom][],
+which has significantly different syntax definitions from the upstream ones.
 
-After you've finished, keep in mind that you're now overriding a default package. When Sublime Text updates to a new version, you'll run the risk of having an out-of-date package unless you pull the latest changes from this repository.
+1. Install Sublime Text.
+2. <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>: Install Package Control
+3. <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>: Package Control: Install Package -> JSCustom
+4. <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>: JS Custom: Rebuild Syntaxes
+5. Run the `./update-js.sh` script (on Linux, you need to tweak the path to Sublime's packages).
+
+When running into merge conflicts in the future, we should directly
+overwrite with the latest version of the syntax from [Thom1729/Sublime-JS-Custom][]
+instead of trying to fix merge conflicts. Make sure to update the
+JavaScript/VERSION file as well.
+
+[Thom1729/Sublime-JS-Custom]: https://github.com/Thom1729/Sublime-JS-Custom
 
 ## Adding a new language
 
