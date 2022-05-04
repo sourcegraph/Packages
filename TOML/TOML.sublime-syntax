@@ -3,6 +3,7 @@
 name: TOML
 file_extensions:
   - toml
+  - poetry.lock
 scope: source.toml
 
 variables:
