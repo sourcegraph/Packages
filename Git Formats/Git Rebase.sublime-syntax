@@ -27,7 +27,7 @@ contexts:
       push:
         - meta_scope: comment.line.git.rebase
         - match: ^(?!\s*{{comment_char}})
-          pop: 2
+          pop: true
         - include: heading
         - include: commands-help
         - include: rebase-msg
