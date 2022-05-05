@@ -50,8 +50,8 @@ jobs:
       - name: Check that ST4 features are not used
         run: |
           set -x
-          ST4_REGEX=""
-          find . -name '.*.sublime-syntax' -type f -exec grep -E '- (hidden_file_extensions:|extends:|meta_prepend:|meta_append:|pop: [0-9]+)' {} +
+          ST4_REGEX="- (extends:|meta_prepend:|meta_append:|pop: [0-9]+)"
+          find . -name '.*.sublime-syntax' -type f -exec grep -E "$ST4_REGEX" {} +
           if [ $? -eq 0 ]; then
             echo "Using ST4 features is not permitted, as those aren't supported by sourcegraph/syntect right now"
             exit 1
