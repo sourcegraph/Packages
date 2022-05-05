@@ -52,7 +52,7 @@ jobs:
           set -x
           ST4_REGEX="- (extends:|meta_prepend:|meta_append:|pop: [0-9]+)"
           MATCHES="$(find . -name '.*.sublime-syntax' -type f -exec grep -E "$ST4_REGEX" {} +)"
-          if [ -n "$MATCHES"]; then
+          if [ -n "$MATCHES" ]; then
             echo "Using ST4 features is not permitted, as those aren't supported by sourcegraph/syntect right now"
             echo "$MATCHES"
             exit 1
