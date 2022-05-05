@@ -1,0 +1,4 @@
+https://raw.githubusercontent.com/guillermooo/dart-sublime-bundle-releases/master/Dart.tmLanguage
+https://raw.githubusercontent.com/guillermooo/dart-sublime-bundle-releases/master/Dart%20Doc%20Comments.tmLanguage
+
+NOTE: You must remove the `#regex.dart` include in order for Sublime Text 3 to convert the syntax. See https://github.com/guillermooo/dart-sublime-bundle/issues/545

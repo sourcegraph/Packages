@@ -1,0 +1,13 @@
+Sublime's "Convert Syntax to .sublime-syntax" command does not support commands. I had to remove them with a find & replace regexp:
+
+```
+\t*(<key>comment).*\W.*(</string>)\n?
+```
+
+Followed by:
+
+```
+\t*<dict>\W*</dict>\W*\n
+```
+
+To remove the empty `<dict></dict>` which Sublime also cannot handle.
