@@ -47,6 +47,16 @@ jobs:
       - name: Git checkout
         uses: actions/checkout@master
 
+      - name: Check that ST4 features are not used
+        run: |
+          set -x
+          ST4_REGEX=""
+          find . -name '.*.sublime-syntax' -type f -exec grep -E '- (hidden_file_extensions:|extends:|meta_prepend:|meta_append:|pop: [0-9]+)' {} +
+          if [ $? -ne 0 ]; then
+            echo "Using ST4 features is not permitted, as those aren't supported by sourcegraph/syntect right now"
+            exit 1
+          fi
+
       - name: Get binary for Build ${{ matrix.sublime-build }} (${{ matrix.sublime-channel }})
         run: |
           wget -O st_syntax_tests.tar.xz https://download.sublimetext.com/st_syntax_tests_build_${{ matrix.sublime-build }}_x64.tar.xz
