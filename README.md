@@ -4,7 +4,10 @@
 
 For work on the Sourcegraph fork,
 follow the instructions for [Making Changes](./MakingChanges.md)
-instead of following the instructions below.
+instead of following the instructions in the sections below.
+Changes to the Sourcegraph fork
+must be submitted against the `st3` branch
+(which is the default), not the `master` branch.
 
 ## Installation
 
