@@ -1,0 +1,12 @@
+https://github.com/slimsag/vscode-bazel/tree/patch-1/syntaxes
+
+Following https://github.com/sourcegraph/syntect_server#adding-languages
+
+Add to file_extensions:
+
+```
+- build_defs
+- BUILD.in
+```
+
+(see https://github.com/bazelbuild/vscode-bazel/pull/195#discussion_r417920624 and https://github.com/sourcegraph/sourcegraph/pull/18666)

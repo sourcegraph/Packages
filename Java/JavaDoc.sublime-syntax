@@ -23,7 +23,7 @@ contexts:
       scope: comment.block.documentation.javadoc punctuation.definition.comment.begin.javadoc
       embed: contents
       embed_scope: comment.block.documentation.javadoc text.html.javadoc
-      escape: \*/
+      escape: \s*\*/
       escape_captures:
         0: comment.block.documentation.javadoc punctuation.definition.comment.end.javadoc
 

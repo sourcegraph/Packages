@@ -18,6 +18,8 @@ file_extensions:
   - Sconstruct
   - sconstruct
   - SConscript
+  - pyst
+  - pyst-include
   - gyp
   - gypi
   - Snakefile
