@@ -505,10 +505,9 @@ contexts:
     - include: else-pop
 
   restricted-production:
-    - meta_include_prototype: false
-    - match: '{{line_ending_ahead}}'
+    - match: \n
       pop: true
-    - match: ''
+    - match: (?=\S)
       set: expression-statement
 
   flow-type-special:
@@ -1064,7 +1063,7 @@ contexts:
     - include: immediately-pop
 
   expression-statement-end:
-    - match: '{{line_ending_ahead}}'
+    - match: \n
       set:
         - match: '{{line_continuation_lookahead}}'
           set: expression-statement-end
@@ -1255,17 +1254,15 @@ contexts:
         - include: object-property
 
   expect-label:
-    - meta_include_prototype: false
-    - match: (?={{nothing}}{{identifier}})
-      set:
-        - match: '{{non_reserved_identifier}}'
-          scope: variable.label.js
-          pop: true
-        - match: '{{identifier}}'
-          scope: invalid.illegal.identifier.js variable.label.js
-          pop: true
-        - include: else-pop
-    - include: immediately-pop
+    - match: '{{non_reserved_identifier}}'
+      scope: variable.label.js
+      pop: true
+    - match: '{{identifier}}'
+      scope: invalid.illegal.identifier.js variable.label.js
+      pop: true
+    - match: $
+      pop: true
+    - include: else-pop
 
   flow-type-object-indexer-type:
     - match: \]
@@ -1644,7 +1641,7 @@ contexts:
     - include: immediately-pop
 
   variable-binding-list-top:
-    - match: '{{line_ending_ahead}}'
+    - match: \n
       set:
         - match: '{{line_continuation_lookahead}}'
           set: variable-binding-top
@@ -1724,7 +1721,7 @@ contexts:
     - include: else-pop
 
   import-export:
-    - match: import{{identifier_break}}(?!{{nothing}}[.(])
+    - match: import{{identifier_break}}(?!\s*[.(])
       scope: keyword.control.import-export.js
       set:
         - meta_scope: meta.import.js
@@ -2862,9 +2859,7 @@ variables:
       enum|
       null|true|false
     ){{identifier_break}}
-  nothing: (?x:(?:\s+|{{block_comment}})*)
   left_expression_end_lookahead: (?!\s*[.\[\(])
-  block_comment_contents: (?:(?:[^*]|\*(?!/))*)
   method_lookahead: |-
     (?x)(?=
       (?: get|set|async ){{identifier_break}}(?!\s*:)
@@ -2875,9 +2870,7 @@ variables:
   identifier_start: (?:[_$\p{L}\p{Nl}]|{{identifier_escape}})
   bin_digit: '[01_]'
   dec_exponent: (?:[Ee](?:[-+]|(?![-+])){{dec_digit}}*)
-  block_comment: (?:/\*{{block_comment_contents}}\*/)
   identifier_break: (?!{{identifier_part}})
-  line_ending_ahead: (?={{nothing}}(?:/\*{{block_comment_contents}})?$)
   dec_integer: (?:0|[1-9]{{dec_digit}}*)
   dollar_only_identifier: (?:\${{identifier_break}})
   property_name: >-
@@ -2890,7 +2883,7 @@ variables:
   func_lookahead: |-
     (?x:
       \s*
-      (?:async{{identifier_break}}{{nothing}})?
+      (?:async\s+)?
       function{{identifier_break}}
     )
   dec_digit: '[0-9_]'
