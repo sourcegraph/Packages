@@ -27,6 +27,7 @@ name: Ruby
 # but also consider 'a.b?(:c)' ??
 file_extensions:
   - rb
+  - rbi
   - Appfile
   - Appraisals
   - Berksfile
