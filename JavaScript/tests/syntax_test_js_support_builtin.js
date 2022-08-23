@@ -13,7 +13,7 @@
 //  ^^^^^ support.function
 
     new Error();
-//      ^^^^^ support.class.builtin
+//      ^^^^^ support.class.error
 
     Array;
 //  ^^^^^ support.class.builtin
@@ -75,19 +75,19 @@
 //  ^^^^^^^ support.class.builtin
 
     Error;
-//  ^^^^^ support.class.builtin
+//  ^^^^^ support.class.error
     EvalError;
-//  ^^^^^^^^^ support.class.builtin
+//  ^^^^^^^^^ support.class.error
     RangeError;
-//  ^^^^^^^^^^ support.class.builtin
+//  ^^^^^^^^^^ support.class.error
     ReferenceError;
-//  ^^^^^^^^^^^^^^ support.class.builtin
+//  ^^^^^^^^^^^^^^ support.class.error
     SyntaxError;
-//  ^^^^^^^^^^^ support.class.builtin
+//  ^^^^^^^^^^^ support.class.error
     TypeError;
-//  ^^^^^^^^^ support.class.builtin
+//  ^^^^^^^^^ support.class.error
     URIError;
-//  ^^^^^^^^ support.class.builtin
+//  ^^^^^^^^ support.class.error
 
     Atomics;
 //  ^^^^^^^ support.constant.builtin
@@ -116,6 +116,11 @@
 //  ^^^^^^^^^ support.function
     encodeURIComponent;
 //  ^^^^^^^^^^^^^^^^^^ support.function
+
+    escape;
+//  ^^^^^^ invalid.deprecated support.function
+    unescape;
+//  ^^^^^^^^ invalid.deprecated support.function
 
 
 foo.constructor;
@@ -361,10 +366,6 @@ Promise.reject;
 //      ^^^^^^ support.function.builtin
 Promise.resolve;
 //      ^^^^^^^ support.function.builtin
-Promise.allSettled;
-//      ^^^^^^^^^^ support.function.builtin
-Promise.any;
-//      ^^^ support.function.builtin
 
 Reflect.apply;
 //      ^^^^^ support.function.builtin
